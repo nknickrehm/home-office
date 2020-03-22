@@ -1,0 +1,150 @@
+<%- include template_header.ejs %>
+
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+        <!-- Masthead Avatar Image -->
+        <!--<img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
+
+        <!-- Masthead Heading -->
+        <h1 class="masthead-heading text-uppercase mb-0">Jetzt registrieren</h1>
+
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <h3>Bereits registriert? <a class="text-dark" href="/registrieren">Hier</a> können Sie sich anmelden!</h3>
+    </div>
+</header>
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form method="POST" action="/registrieren" style="max-width: 800px">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>E-Mail Adresse</label>
+                            <input class="form-control" id="email" name="email" type="email" placeholder="E-Mail Adresse" required="required" data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Benutername</label>
+                            <input class="form-control" id="displayName" name="displayName" type="text" placeholder="Benutzername" required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Passwort</label>
+                            <input class="form-control" id="password" name="password" type="password" placeholder="Passwort" required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <h2>Persönliche Informationen</h2>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Vorname</label>
+                            <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Vorname" required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Nachname</label>
+                            <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Nachname" required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Adresse</label>
+                            <input class="form-control" id="addressA" name="addressA" type="text" placeholder="Adresse" required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Adresse (2. Zeile)</label>
+                            <input class="form-control" id="addressB" name="addressB" type="text" placeholder="Adresse 2. Zeile" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Stadt</label>
+                            <input class="form-control" id="city" name="city" type="text" placeholder="Stadt" required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Postleitzahl</label>
+                            <input class="form-control" id="zipCode" name="zipCode" type="text" placeholder="PLZ" required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group controls mb-0 pb-2">
+                            <select class="form-control" id="region" name="region" required="required" data-validation-required-message="Please enter your password.">
+                                <option default>Bundesland (Bitte auswählen)</option>
+                                <option>Baden-Württemberg</option>
+                                <option>Bayern</option>
+                                <option>Berlin</option>
+                                <option>Brandenburg</option>
+                                <option>Bremen</option>
+                                <option>Hamburg</option>
+                                <option>Hessen</option>
+                                <option>Mecklenburg-Vorpommern</option>
+                                <option>Niedersachsen</option>
+                                <option>Nordrhein-Westfalen</option>
+                                <option>Rheinland-Pfalz</option>
+                                <option>Saarland</option>
+                                <option>Sachsen</option>
+                                <option>Sachsen-Anhalt</option>
+                                <option>Schleswig-Holstein</option>
+                                <option>Thüringen</option>
+                            </select>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Land</label>
+                            <input class="form-control" id="country" name="country" type="text" placeholder="Land" value="Deutschland" disabled required="required" data-validation-required-message="Please enter your password.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Registrieren</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include template_footer.ejs %>
