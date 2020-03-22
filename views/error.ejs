@@ -1,12 +1,16 @@
 <%- include template_header.ejs %>
+
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
 
-        <!-- Contact Section Heading -->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Oh nein... Ein Fehler!</h2>
+        <!-- Masthead Avatar Image -->
+        <!--<img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
+
+        <!-- Masthead Heading -->
+        <h1 class="masthead-heading text-uppercase mb-0">Fehler <%= error.status %>: <%= message %></h1>
 
         <!-- Icon Divider -->
-        <div class="divider-custom">
+        <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon">
                 <i class="fa fa-star"></i>
@@ -14,14 +18,9 @@
             <div class="divider-custom-line"></div>
         </div>
 
-        <!-- Error Section Form -->
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h1><%= message %></h1>
-                <h2><%= error.status %></h2>
-                <pre><%= error.stack %></pre>
-            </div>
-        </div>
+        <!-- Masthead Subheading -->
+        <p class="masthead-subheading font-weight-light mb-0"><a href="/" class="btn btn-light">Zurück zur Startseite</a></p>
+
     </div>
 </header>
 

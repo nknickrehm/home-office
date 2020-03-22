@@ -18,6 +18,11 @@ router.get('/alle-kurse', function(req, res, next) {
 });
 
 /* GET users listing. */
+
+router.get('/alle-kurse/demo/', function(req, res, next) {
+  res.render('demo-course', { loggedIn: req.isAuthenticated(), course: { title:'', description: ''} });
+});
+
 router.get('/alle-kurse/:courseId/', function(req, res, next) {
   Course.findOne({ _id: req.params.courseId }, (err, course) => {
     if (err) return next(err);
@@ -34,6 +39,20 @@ router.get('/mein-profil', function(req, res, next) {
 /* GET users listing. */
 router.get('/kurs-erstellen', function(req, res, next) {
   res.render('create-course', { loggedIn: req.isAuthenticated() });
+});
+
+router.get('/bestenliste', function(req, res, next) {
+  res.redirect('/plattform/bestenliste/benutzer');
+});
+
+/* GET users listing. */
+router.get('/bestenliste/teams', function(req, res, next) {
+  res.render('leaderboard-team', { loggedIn: req.isAuthenticated() });
+});
+
+/* GET users listing. */
+router.get('/bestenliste/benutzer', function(req, res, next) {
+  res.render('leaderboard-user', { loggedIn: req.isAuthenticated() });
 });
 
 router.post('/kurs-erstellen', function(req, res, next) {

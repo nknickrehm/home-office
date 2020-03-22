@@ -17,8 +17,6 @@
             </div>
             <div class="divider-custom-line"></div>
         </div>
-
-        <h3>Bereits registriert? <a class="text-dark" href="/registrieren">Hier</a> können Sie sich anmelden!</h3>
     </div>
 </header>
 
@@ -26,6 +24,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
+                <h3>Bereits registriert? <a href="/anmelden">Hier</a> können Sie sich anmelden!</h3>
+                <br>
                 <form method="POST" action="/registrieren" style="max-width: 800px">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -80,14 +80,6 @@
 
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Adresse (2. Zeile)</label>
-                            <input class="form-control" id="addressB" name="addressB" type="text" placeholder="Adresse 2. Zeile" data-validation-required-message="Please enter your password.">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Stadt</label>
                             <input class="form-control" id="city" name="city" type="text" placeholder="Stadt" required="required" data-validation-required-message="Please enter your password.">
                             <p class="help-block text-danger"></p>
@@ -98,39 +90,6 @@
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Postleitzahl</label>
                             <input class="form-control" id="zipCode" name="zipCode" type="text" placeholder="PLZ" required="required" data-validation-required-message="Please enter your password.">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="form-group controls mb-0 pb-2">
-                            <select class="form-control" id="region" name="region" required="required" data-validation-required-message="Please enter your password.">
-                                <option default>Bundesland (Bitte auswählen)</option>
-                                <option>Baden-Württemberg</option>
-                                <option>Bayern</option>
-                                <option>Berlin</option>
-                                <option>Brandenburg</option>
-                                <option>Bremen</option>
-                                <option>Hamburg</option>
-                                <option>Hessen</option>
-                                <option>Mecklenburg-Vorpommern</option>
-                                <option>Niedersachsen</option>
-                                <option>Nordrhein-Westfalen</option>
-                                <option>Rheinland-Pfalz</option>
-                                <option>Saarland</option>
-                                <option>Sachsen</option>
-                                <option>Sachsen-Anhalt</option>
-                                <option>Schleswig-Holstein</option>
-                                <option>Thüringen</option>
-                            </select>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Land</label>
-                            <input class="form-control" id="country" name="country" type="text" placeholder="Land" value="Deutschland" disabled required="required" data-validation-required-message="Please enter your password.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>

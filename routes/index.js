@@ -15,6 +15,10 @@ router.get('/anmelden', function(req, res, next) {
     res.render('login', { loggedIn: req.isAuthenticated(), logInPage: true });
 });
 
+router.get('/impressum', function(req, res, next) {
+    res.render('imprint', { loggedIn: req.isAuthenticated(), logInPage: true });
+});
+
 router.post("/anmelden", passport.authenticate("local", {
   successRedirect: "/plattform",
   failureRedirect: "/anmelden"

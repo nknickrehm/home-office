@@ -8,7 +8,7 @@
         <!--<img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
 
         <!-- Masthead Heading -->
-        <h1 class="masthead-heading text-uppercase mb-0">Alle Kurse</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">Herausforderungen</h1>
 
         <!-- Icon Divider -->
         <div class="divider-custom divider-light">
@@ -22,7 +22,7 @@
         <a class="btn btn-light" href="/plattform/kurs-erstellen">
             <i class="fa fa-plus"></i>
             &nbsp;
-            <span>Kurs erstellen</span>
+            <span>Herausforderung erstellen</span>
         </a>
         <!-- Masthead Subheading -->
         <!--<p class="masthead-subheading font-weight-light mb-0">Angemeldet - Geschützer Bereich - Let´s go</p>-->
@@ -43,16 +43,33 @@
                                     <%= courses[i].title %>
                                 </a>
                             </h5>
-                            <p class="card-text"><%= courses[i].description %></p>
-                            <a class="card-link">
-                                <i class="fa fa-user-circle"></i>
-                                &nbsp;
-                                <span>Jürgen Schmidt</span>
-                            </a>
+                            <p class="card-text"><%- courses[i].description %></p>
                         </div>
                     </div>
                 </div>
             <% } %>
+                <div class="col col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/plattform/alle-kurse/demo">
+                                    Neues Team in Home Office
+                                </a>
+                            </h5>
+                            <p class="card-text">
+                                <ul>
+                                    <li>Arbeiten mit digitalen Tools</li>
+                                    <li>Eine Videokonferenz aufsetzen</li>
+                                    <li>Dateien mit anderen teilen</li>
+                                    <li>Verhaltensregeln bei der Nutzung von digitalen Tools</li>
+                                    <li>Entscheidungen gemeinsam treffen</li>
+                                    <li>Schaffen eines positiven online Team Ergebnisses</li>
+                                    <li>Dokumente gemeinsam bearbeiten</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </section>

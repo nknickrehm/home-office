@@ -8,7 +8,7 @@
         <!--<img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
 
         <!-- Masthead Heading -->
-        <h1 class="masthead-heading text-uppercase mb-0"><%= course.title %></h1>
+        <h1 class="masthead-heading text-uppercase mb-0">Bestenlisten</h1>
 
         <!-- Icon Divider -->
         <div class="divider-custom divider-light">
@@ -21,8 +21,8 @@
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/plattform/alle-kurse">Alle Kurse</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><%= course.title %></li>
+                <li class="breadcrumb-item active">Benutzer</li>
+                <li class="breadcrumb-item"><a href="/plattform/bestenliste/teams">Teams</a></li>
             </ol>
         </nav>
         <!-- Masthead Subheading -->
@@ -35,24 +35,6 @@
 <section class="page-section mb-0">
     <div class="container">
 
-        <div class="row">
-            <div class="col col-md-7">
-                <h2 class="text-uppercase">Kursbeschreibung</h2>
-                <br>
-                <p><%- course.description %></p>
-            </div>
-
-
-            <div class="col col-md-5">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="text-uppercase">Herausforderung angehen</h2>
-                        <p><i class="fa fa-clock-o"></i> Nächste Herausforderung heute um 10:30 Uhr</p>
-                        <a href="#" class="btn btn-primary" style="margin-right: 10px;">Alleine</a><a href="#" class="btn btn-primary">Als Team</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
