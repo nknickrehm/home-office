@@ -12,7 +12,7 @@ router.get('/anmelden', function(req, res, next) {
   if (req.isAuthenticated())
     res.redirect('/dashboard')
   else
-    res.render('login', { loggedIn: req.isAuthenticated() });
+    res.render('login', { loggedIn: req.isAuthenticated(), logInPage: true });
 });
 
 router.post("/anmelden", passport.authenticate("local", {
@@ -29,7 +29,7 @@ router.get('/registrieren', function(req, res, next) {
   if (req.isAuthenticated())
     res.redirect('/plattform')
   else
-    res.render('enroll', { loggedIn: req.isAuthenticated() });
+    res.render('enroll', { loggedIn: req.isAuthenticated(), logInPage: true });
 });
 
 router.post('/registrieren', (req, res, next) => {
