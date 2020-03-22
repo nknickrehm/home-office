@@ -1,0 +1,59 @@
+<%- include template_header.ejs %>
+
+<!-- Masthead -->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+        <!-- Masthead Avatar Image -->
+        <!--<img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
+
+        <!-- Masthead Heading -->
+        <h1 class="masthead-heading text-uppercase mb-0"><%= course.title %></h1>
+
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/plattform/alle-kurse">Alle Kurse</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><%= course.title %></li>
+            </ol>
+        </nav>
+        <!-- Masthead Subheading -->
+        <!--<p class="masthead-subheading font-weight-light mb-0">Angemeldet - Geschützer Bereich - Let´s go</p>-->
+
+    </div>
+</header>
+
+<!-- About Section -->
+<section class="page-section mb-0">
+    <div class="container">
+
+        <div class="row">
+            <div class="col col-md-8">
+                <h2 class="text-uppercase">Kursbeschreibung</h2>
+                <br>
+                <p><%= course.description %></p>
+            </div>
+
+
+            <div class="col col-md-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="text-uppercase">Autor:in</h2>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include template_footer.ejs %>
