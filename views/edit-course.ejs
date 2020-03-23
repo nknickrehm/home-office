@@ -1,0 +1,134 @@
+<%- include template_header.ejs %>
+
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+        <!-- Masthead Avatar Image -->
+        <!--<img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
+
+        <!-- Masthead Heading -->
+        <h1 class="masthead-heading text-uppercase mb-0">Kurs bearbeiten</h1>
+
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+    </div>
+</header>
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form method="POST" action="/plattform/alle-kurse/<%= course._id %>/bearbeiten" style="max-width: 800px">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Titel</label>
+                            <input class="form-control" id="title" name="title" type="text" value="<%= course.title %>" placeholder="Titel" required="required" data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Beschreibung</label>
+                            <textarea class="form-control" id="description" name="description" rows="5" placeholder="Beschreibung" required="required" data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group">
+                        <a href="/plattform/alle-kurse/<%= course._id %>" class="btn btn-light btn-xl">Abbrechen</a>&nbsp;
+                        <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Änderung speichern</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+  var simplemde = new SimpleMDE({
+    element: document.getElementById("description"),
+    toolbarTips: true,
+    spellChecker: false,
+    autosave: {
+      enabled: true,
+      uniqueId: "<%= course._id %>",
+      delay: 1000,
+    },
+    initialValue: `<%= course.description %>`,
+    forceSync: true,
+    toolbar: [
+      {
+        name: "heading-1",
+        action: SimpleMDE.toggleHeading1,
+        className: "fa fa-header fa-header-x fa-header-1",
+        title: "Überschrift 1",
+      },
+      {
+        name: "bold",
+        action: SimpleMDE.toggleBold,
+        className: "fa fa-bold",
+        title: "Fett",
+      },
+      {
+        name: "italic",
+        action: SimpleMDE.toggleItalic,
+        className: "fa fa-italic",
+        title: "Kursiv",
+      },
+      '|',
+      {
+        name: "unordered-list",
+        action: SimpleMDE.toggleUnorderedList,
+        className: "fa fa-list-ul",
+        title: "Unsortierte Liste",
+      },
+      {
+        name: "ordered-list",
+        action: SimpleMDE.toggleOrderedList,
+        className: "fa fa-list-ol",
+        title: "Sortierte Liste",
+      },
+      '|',
+      {
+        name: "link",
+        action: SimpleMDE.drawLink,
+        className: "fa fa-link",
+        title: "Link",
+      },
+      {
+        name: "image",
+        action: SimpleMDE.drawImage,
+        className: "fa fa-picture-o",
+        title: "Bild",
+      },
+      '|',
+      {
+        name: "preview",
+        action: SimpleMDE.togglePreview,
+        className: "fa fa-eye no-disable",
+        title: "Vorschau ein/aus",
+      },
+      {
+        name: "guide",
+        action: () => {
+          let tempLink = document.createElement('a');
+          tempLink.href = 'https://www.heise.de/mac-and-i/downloads/65/1/1/6/7/1/0/3/Markdown-CheatSheet-Deutsch.pdf';
+          tempLink.target = '_blank';
+          tempLink.click();
+        },
+        className: "fa fa-question-circle",
+        title: "Anleitung",
+      }
+    ]
+  });
+</script>
+
+<%- include template_footer.ejs %>

@@ -7,23 +7,15 @@ const User = require('../models/user').User;
 var router = express.Router();
 const Converter = new showdown.Converter();
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   res.redirect('/plattform/alle-kurse');
 });
 
-/* GET users listing. */
 router.get('/alle-kurse', function(req, res, next) {
   Course.find({}, (err, courses) => {
     if (err) return next(err);
     res.render('all-courses', { loggedIn: req.isAuthenticated(), courses });
   });
-});
-
-/* GET users listing. */
-
-router.get('/alle-kurse/demo/', function(req, res, next) {
-  res.render('demo-course', { loggedIn: req.isAuthenticated(), course: { title:'', description: ''} });
 });
 
 router.get('/alle-kurse/:courseId/', function(req, res, next) {
@@ -61,6 +53,86 @@ router.get('/alle-kurse/:courseId/', function(req, res, next) {
       renderedCourse.description = courseDescriptionHTML;
 
       res.render('course', { loggedIn: req.isAuthenticated(), course: renderedCourse, isOwner });
+    });
+  });
+});
+
+router.get('/alle-kurse/:courseId/bearbeiten', function(req, res, next) {
+  Course.findOne({ _id: req.params.courseId }, (err, course) => {
+    if (err) return next(err);
+
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return next(err);
+      let isOwner = false;
+
+      if (!!user.courses.find(c => c._id.equals(course._id))) {
+        isOwner = true;
+      }
+
+      if (!isOwner) {
+        const e = new Error();
+        e.code = '403';
+        e.message = 'Du kannst nur Kurse bearbeiten, die du selber erstellt hast!';
+        return next(e);
+      }
+
+      res.render('edit-course', { loggedIn: req.isAuthenticated(), course });
+    });
+  });
+});
+
+router.get('/alle-kurse/:courseId/loeschen', function(req, res, next) {
+  Course.findOne({ _id: req.params.courseId }, (err, course) => {
+    if (err) return next(err);
+
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return next(err);
+      let isOwner = false;
+
+      if (!!user.courses.find(c => c._id.equals(course._id))) {
+        isOwner = true;
+      }
+
+      if (!isOwner) {
+        const e = new Error();
+        e.code = '403';
+        e.message = 'Du kannst nur Kurse löschen, die du selber erstellt hast!';
+        return next(e);
+      }
+
+      Course.findOneAndRemove({ _id: req.params.courseId }, (err) => {
+        if (err) return next(err);
+        res.redirect('/plattform/alle-kurse/');
+      });
+    });
+  });
+});
+
+router.post('/alle-kurse/:courseId/bearbeiten', (req, res, next) => {
+  Course.findOne({ _id: req.params.courseId }, (err, course) => {
+    const { title, description } = req.body;
+    if (!title || !description) return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/bearbeiten`);
+    if (err) return next(err);
+
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return next(err);
+      let isOwner = false;
+
+      if (!!user.courses.find(c => c._id.equals(course._id))) {
+        isOwner = true;
+      }
+
+      if (!isOwner) {
+        const e = new Error();
+        e.code = '403';
+        e.message = 'Du kannst nur Kurse bearbeiten, die du selber erstellt hast!';
+        return next(e);
+      }
+
+      Course.findOneAndUpdate({ _id: req.params.courseId }, { title, description}, (err) => {
+        if (err) return next(err);
+        res.redirect(`/plattform/alle-kurse/${req.params.courseId}#bearbeitet`);
+      });
     });
   });
 });
