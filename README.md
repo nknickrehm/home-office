@@ -23,9 +23,9 @@ Unsere Plattform befähigt Führungskräfte und Mitarbeiter*innen in Teams aus d
 ## Wie haben wir sie gebaut?
 Als Gruppe haben wir Design-Thinking Sprints und Tools verwendet, um einen Storyline sowie Produkt mit Hilfe von User Stories und Szenarien zu definieren und kreieren.
 
-Unsere Online Plattform steht bereits prototypisch zur Verfügung. Wir haben die grundlegenden Funktionalitäten in einer interaktiven Webanwendung implementiert, welche ab sofort unter world-of-work.de verfügbar ist. Technisch gesehen, handelt es sich bei der Anwendung um einen Node.js Web-Server, einen MongoDB Datenbank-Server und NGINX als Reverse Proxy.
+Unsere Online Plattform steht bereits prototypisch zur Verfügung. Wir haben die grundlegenden Funktionalitäten in einer interaktiven Webanwendung implementiert, welche ab sofort unter [world-of-work.de](https://world-of-work.de) verfügbar ist. Technisch gesehen, handelt es sich bei der Anwendung um einen Node.js Web-Server, einen MongoDB Datenbank-Server und NGINX als Reverse Proxy.
 
-Das technische Setup ist grundsätzlich skalierbar. Der Datenbank-Server läuft bereits in einer Docker-Umgebung. Auch der Web-Server kann ohne Aufwand als Container bereitgestellt werden. Eine Container-Orchestrierungs-Engine wie Kubernetes könnte dann eine hohe Verfügbarkeit sicherstellen.
+Das technische Setup ist grundsätzlich sehr gut skalierbar. Alle Komponenten stehen als Docker Container zur Verfügung, welche mittels einer Container-Orchestrierungs-Engine wie Kubernetes mit hoher Verfügbarkeit betrieben werden können.
 
 Herausforderungen, die wir bewältigen mussten
 Da sich keine*r von uns vorher kannte, mussten wir selbst erst einmal eine wirksame Arbeitsweise entwickeln, d.h. sich kennenlernen sowie Zusammenarbeitsregeln, Tools und Plattformen vereinbaren. Dazu kamen die Herausforderungen, die Zeit nicht aus den Augen zu lassen und in Details hängen zu bleiben, sich oft daran zu erinnern, dass es um einen Prototypen geht und nicht um ein detailliert ausgearbeitetes Produkt sowie Privatleben (Kinder, Umzug, etc) und Projekt zu jonglieren.
@@ -33,7 +33,7 @@ Da sich keine*r von uns vorher kannte, mussten wir selbst erst einmal eine wirks
 ## Erfolge, auf die wir stolz sind
 Wir waren trotz des fehlenden Kennens und unserer Unterschiedlichkeit schnell in der Lage, gemeinsam zu arbeiten und schnell Lösungen auch für Prozess-Schwierigkeiten zu entwickeln. Wir haben gemeinsam immer wieder Möglichkeiten gefunden sowohl am Ziel ergebnisorientiert zu arbeiten als auch unsere unterschiedlichen Bedürfnisse zu berücksichtigen und miteinander abzustimmen. Als selbstorganisiertes Team haben wir gemeinsam die Verantwortung für den Prozess übernommen und gemeinsam dazu beigetragen, dass wir arbeitsfähig sind und bleiben - das funktioniert oft noch nicht mal in sehr erfahrenen Teams.
 
-Wir sind der lebende Beweis, dass Home Office auch mit Teams funktioniert, das sich vorher gar nicht kennt.
+Wir sind der lebende Beweis, dass Home Office auch in einem Teams funktionieren kann, das sich vorher gar nicht kennt.
 
 ## Was wir gelernt haben
 Wir haben gelernt, dass unser Wissen auch diesem Praxistest standhält, das heißt vor allem darauf zu achten, dass wir uns als Menschen in einer Weise kennen lernen und begegnen, die es ermöglicht, dass wir uns in der Lage fühlen, Spannungen anzusprechen und gemeinsam zu lösen. Auch, oder speziell in einer Krisenzeit, ist es ermutigend, so schnell im Team ein sinnvolles Ergebnis erzielen zu können.
