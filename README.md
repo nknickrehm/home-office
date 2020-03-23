@@ -23,9 +23,9 @@ Unsere Plattform befähigt Führungskräfte und Mitarbeiter*innen in Teams aus d
 ## Wie haben wir sie gebaut?
 Als Gruppe haben wir Design-Thinking Sprints und Tools verwendet, um einen Storyline sowie Produkt mit Hilfe von User Stories und Szenarien zu definieren und kreieren.
 
-Unsere Online Plattform steht bereits prototypisch zur Verfügung. Wir haben die grundlegenden Funktionalitäten in einer interaktiven Webanwendung implementiert, welche ab sofort unter world-of-work.de verfügbar ist. Technisch gesehen, handelt es sich bei der Anwendung um einen Node.js Web-Server, einen MongoDB Datenbank-Server und NGINX als Reverse Proxy.
+Unsere Online Plattform steht bereits prototypisch zur Verfügung. Wir haben die grundlegenden Funktionalitäten in einer interaktiven Webanwendung implementiert, welche ab sofort unter [world-of-work.de](https://world-of-work.de) verfügbar ist. Technisch gesehen, handelt es sich bei der Anwendung um einen Node.js Web-Server, einen MongoDB Datenbank-Server und NGINX als Reverse Proxy.
 
-Das technische Setup ist grundsätzlich skalierbar. Der Datenbank-Server läuft bereits in einer Docker-Umgebung. Auch der Web-Server kann ohne Aufwand als Container bereitgestellt werden. Eine Container-Orchestrierungs-Engine wie Kubernetes könnte dann eine hohe Verfügbarkeit sicherstellen.
+Das technische Setup ist grundsätzlich sehr gut skalierbar. Alle Komponenten stehen als Docker Container zur Verfügung, welche mittels einer Container-Orchestrierungs-Engine wie Kubernetes mit hoher Verfügbarkeit betrieben werden können.
 
 Herausforderungen, die wir bewältigen mussten
 Da sich keine*r von uns vorher kannte, mussten wir selbst erst einmal eine wirksame Arbeitsweise entwickeln, d.h. sich kennenlernen sowie Zusammenarbeitsregeln, Tools und Plattformen vereinbaren. Dazu kamen die Herausforderungen, die Zeit nicht aus den Augen zu lassen und in Details hängen zu bleiben, sich oft daran zu erinnern, dass es um einen Prototypen geht und nicht um ein detailliert ausgearbeitetes Produkt sowie Privatleben (Kinder, Umzug, etc) und Projekt zu jonglieren.
