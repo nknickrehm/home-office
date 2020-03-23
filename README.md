@@ -3,7 +3,13 @@ Unser Beitrag zum Hackathon #WirVsVirus.
 - Mehr Informationen zum Hackathon [hier](https://wirvsvirushackathon.org) 
 - Zu unserem Projekt auf Devpost gelangt ihr [hier](https://devpost.com/software/1_26_b_homeoffice_remoteteamarbeit)
 - Eine Live Demo findet ihr [hier](https://www.world-of-work.de)
-- Eine Anleitung zur Installation des Prototypen gibt es ganz unten auf dieser Seite
+
+## Quick Start mit dem Prototypen
+- Installiere [Docker](https://docs.docker.com/install/) 
+- Erstelle einen Account im [Docker-Hub](https://hub.docker.com)
+- Melde deine Docker Installation im Docker-Hub an mit `docker login`
+- Klone dieses Repository
+- Starte den Prototypen  mit `docker-compose up` in diesem Verzeichnis
 
 ## Pitch Video
 [![World of Work - Thumbnail zu unserem Pitch Video](https://img.youtube.com/vi/L4Fc87VLV0c/0.jpg)](https://www.youtube.com/watch?v=L4Fc87VLV0c)
@@ -37,17 +43,3 @@ Wir haben gelernt, dass unser Wissen auch diesem Praxistest standhält, das hei�
 - Partner und Multiplikatoren gewinnen
 - Storylines im Detail ausarbeiten und das Proof of Concept testen
 - Skalierbarkeit der technischen Umsetzung weiter ausbauen
-
-## Wie starte ich den Prototypen?
-Es wird ein MongoDB Datenbankserver benötigt, den wir in unserem Setup in Docker betrieben haben:
-
-``
-docker run --name mongo-wirvsvirus -p 27017:27017 -d mongo`
-``
-
-Der Webserver soll langfristig auch über Docker laufen, was wir aber auf Grund vieler Commits zum Ende hin erstmal nach hinten gestellt haben. 
-Daher einfach Node.js in der aktuellen LTS Variante auf dem Server / deinem lokalen Rechner installieren.
-
-Die Datei `.env.example` muss kopiert und in `.env` umbenannt werden. Hier bitte die Adresse des MongoDB Servers und einen beliebigen String für die Sessions im Webserver angeben.
-
-Nun noch `npm install` und `npm start` im Grundverzeichnis des Projekts ausführen. Wir empfehlen PM2 als Prozessmanager und einen NGINX Reverse Proxy wenn der Prototyp öffentlich betrieben werden soll.
