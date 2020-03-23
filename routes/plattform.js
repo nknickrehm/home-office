@@ -1,8 +1,11 @@
 var express = require('express');
+const xss = require('xss');
+const showdown  = require('showdown');
 const Course = require('../models/course').Course;
 const User = require('../models/user').User;
 
 var router = express.Router();
+const Converter = new showdown.Converter();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -26,7 +29,39 @@ router.get('/alle-kurse/demo/', function(req, res, next) {
 router.get('/alle-kurse/:courseId/', function(req, res, next) {
   Course.findOne({ _id: req.params.courseId }, (err, course) => {
     if (err) return next(err);
-    res.render('course', { loggedIn: req.isAuthenticated(), course });
+
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return next(err);
+      let isOwner = false;
+
+      if (!!user.courses.find(c => c._id.equals(course._id))) {
+        isOwner = true;
+      }
+
+      let courseDescriptionHTML = Converter.makeHtml(course.description);
+      courseDescriptionHTML = courseDescriptionHTML.replace(/<h1 id="[^>]*>/g, '<h2>');
+      courseDescriptionHTML = courseDescriptionHTML.replace('</h1>', '</h2>');
+
+      const xssOptions = {
+        whiteList: {
+          h2: [],
+          a: ['href','target'],
+          img: ['src','alt'],
+          p: [],
+          ol: [],
+          ul: [],
+          li: [],
+          em: [],
+          strong: []
+        }
+      };
+      courseDescriptionHTML = xss(courseDescriptionHTML, xssOptions);
+
+      const renderedCourse = JSON.parse(JSON.stringify(course));
+      renderedCourse.description = courseDescriptionHTML;
+
+      res.render('course', { loggedIn: req.isAuthenticated(), course: renderedCourse, isOwner });
+    });
   });
 });
 

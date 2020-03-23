@@ -34,24 +34,103 @@
 <!-- About Section -->
 <section class="page-section mb-0">
     <div class="container">
-
+        <% if (isOwner) { %>
+            <h2>
+                Diese Herausforderung
+                <a href="/plattform/alle-kurse/<%= course._id %>/bearbeiten" class="btn btn-warning">
+                    <i class="fa fa-edit"></i>
+                    &nbsp;
+                    <span>Bearbeiten</span>
+                </a>
+                <a href="/plattform/alle-kurse/<%= course._id %>/bearbeiten" class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                    &nbsp;
+                    <span>Löschen</span>
+                </a>
+            </h2>
+            <br>
+        <% } %>
         <div class="row">
-            <div class="col col-md-7">
-                <h2 class="text-uppercase">Kursbeschreibung</h2>
-                <br>
+            <div class="col col-xl-7">
                 <p><%- course.description %></p>
             </div>
 
-
-            <div class="col col-md-5">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="text-uppercase">Herausforderung angehen</h2>
-                        <p><i class="fa fa-clock-o"></i> Nächste Herausforderung heute um 10:30 Uhr</p>
-                        <a href="#" class="btn btn-primary" style="margin-right: 10px;">Alleine</a><a href="#" class="btn btn-primary">Als Team</a>
+            <% if (course.courseInstances.length > 1) { %>
+                <% if (isOwner) { %>
+                    <div class="col col-12 col-xl-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="text-uppercase">Nächste Herausforderung</h2>
+                                <p><i class="fa fa-clock-o"></i> Heute um 10:30 Uhr</p>
+                                <a href="#" class="btn btn-warning" style="margin-right: 10px;">
+                                    <i class="fa fa-edit"></i>
+                                    &nbsp;
+                                    <span>Bearbeiten</span>
+                                </a>
+                                <a href="#" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                    &nbsp;
+                                    <span>Löschen</span>
+                                </a>
+                                <br>
+                                <br>
+                                <h3>Teilnehmer</h3>
+                                <ul>
+                                    <li>Nikolas Knickrehm</li>
+                                </ul>
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fa fa-at"></i>
+                                    &nbsp;
+                                    <span>E-Mail an alle</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                <% } else { %>
+                    <div class="col col-12 col-xl-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="text-uppercase">Herausforderung angehen</h2>
+                                <p><i class="fa fa-clock-o"></i> Nächste Herausforderung heute um 10:30 Uhr</p>
+                                <a href="#" class="btn btn-primary" style="margin-right: 10px;">
+                                    <i class="fa fa-user"></i>
+                                    &nbsp;
+                                    <span>Alleine</span>
+                                </a>
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fa fa-users"></i>
+                                    &nbsp;
+                                    <span>Als Team</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <% if (isOwner) { %>
+                    <div class="col col-12 col-xl-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="text-uppercase">Nächste Herausforderung</h2>
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fa fa-clock-o"></i>
+                                    &nbsp;
+                                    <span>Zeitpunkt festlegen</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="col col-12 col-xl-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="text-uppercase">Nächste Herausforderung</h2>
+                                <p>Noch steht leider kein neuer Zeitpunkt fest. Wir bitten um Geduld!</p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
         </div>
     </div>
 </section>

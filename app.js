@@ -40,6 +40,10 @@ app.use('/lib/font-awesome', express.static(path.join(__dirname, 'node_modules',
 app.use('/lib/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')));
 app.use('/lib/jquery', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
 app.use('/lib/jquery-easing', express.static(path.join(__dirname, 'node_modules', 'jquery-easing', 'dist')));
+app.use('/lib/simplemde', express.static(path.join(__dirname, 'node_modules', 'simplemde', 'dist')));
+app.use('/lib/datetimepicker', express.static(path.join(__dirname, 'node_modules', 'eonasdan-bootstrap-datetimepicker', 'build')));
+app.use('/lib/moment', express.static(path.join(__dirname, 'node_modules', 'moment', 'min')));
+
 
 app.use('/', indexRouter);
 app.use('/plattform', isLoggedIn, plattformRouter);
