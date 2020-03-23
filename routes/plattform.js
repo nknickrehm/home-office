@@ -32,8 +32,8 @@ router.get('/alle-kurse/:courseId/', function(req, res, next) {
 
       let courseDescriptionHTML = Converter.makeHtml(course.description);
       courseDescriptionHTML = courseDescriptionHTML.replace(/<h1 id="[^>]*>/g, '<h2>');
-      courseDescriptionHTML = courseDescriptionHTML.replace('<h1>', '<h2>');
-      courseDescriptionHTML = courseDescriptionHTML.replace('</h1>', '</h2>');
+      courseDescriptionHTML = courseDescriptionHTML.replace(/<h1>/g, '<h2>');
+      courseDescriptionHTML = courseDescriptionHTML.replace(/<\/h1>/g, '</h2>');
 
       const xssOptions = {
         whiteList: {
