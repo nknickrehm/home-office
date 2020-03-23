@@ -33,7 +33,7 @@ Da sich keine*r von uns vorher kannte, mussten wir selbst erst einmal eine wirks
 ## Erfolge, auf die wir stolz sind
 Wir waren trotz des fehlenden Kennens und unserer Unterschiedlichkeit schnell in der Lage, gemeinsam zu arbeiten und schnell Lösungen auch für Prozess-Schwierigkeiten zu entwickeln. Wir haben gemeinsam immer wieder Möglichkeiten gefunden sowohl am Ziel ergebnisorientiert zu arbeiten als auch unsere unterschiedlichen Bedürfnisse zu berücksichtigen und miteinander abzustimmen. Als selbstorganisiertes Team haben wir gemeinsam die Verantwortung für den Prozess übernommen und gemeinsam dazu beigetragen, dass wir arbeitsfähig sind und bleiben - das funktioniert oft noch nicht mal in sehr erfahrenen Teams.
 
-Wir sind der lebende Beweis, dass Home Office auch mit Teams funktioniert, das sich vorher gar nicht kennt.
+Wir sind der lebende Beweis, dass Home Office auch in einem Teams funktionieren kann, das sich vorher gar nicht kennt.
 
 ## Was wir gelernt haben
 Wir haben gelernt, dass unser Wissen auch diesem Praxistest standhält, das heißt vor allem darauf zu achten, dass wir uns als Menschen in einer Weise kennen lernen und begegnen, die es ermöglicht, dass wir uns in der Lage fühlen, Spannungen anzusprechen und gemeinsam zu lösen. Auch, oder speziell in einer Krisenzeit, ist es ermutigend, so schnell im Team ein sinnvolles Ergebnis erzielen zu können.
