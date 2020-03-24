@@ -1,6 +1,7 @@
 var express = require('express');
 const xss = require('xss');
 const showdown  = require('showdown');
+const CourseInstance = require('../models/courseInstance').CourseInstance;
 const Course = require('../models/course').Course;
 const User = require('../models/user').User;
 
@@ -101,6 +102,8 @@ router.get('/alle-kurse/:courseId/loeschen', function(req, res, next) {
         return next(e);
       }
 
+      course.courseInstances.forEach((courseInstance) => CourseInstance.findOneAndRemove({ _id: courseInstance._id }));
+
       Course.findOneAndRemove({ _id: req.params.courseId }, (err) => {
         if (err) return next(err);
         res.redirect('/plattform/alle-kurse/');
@@ -133,6 +136,80 @@ router.post('/alle-kurse/:courseId/bearbeiten', (req, res, next) => {
       Course.findOneAndUpdate({ _id: req.params.courseId }, { title, description}, (err) => {
         if (err) return next(err);
         res.redirect(`/plattform/alle-kurse/${req.params.courseId}#bearbeitet`);
+      });
+    });
+  });
+});
+
+router.get('/alle-kurse/:courseId/neuer-termin', function(req, res, next) {
+  Course.findOne({ _id: req.params.courseId }, (err, course) => {
+    if (err) return next(err);
+
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return next(err);
+      let isOwner = false;
+
+      if (!!user.courses.find(c => c._id.equals(course._id))) {
+        isOwner = true;
+      }
+
+      if (!isOwner) {
+        const e = new Error();
+        e.code = '403';
+        e.message = 'Du kannst nur Kurse bearbeiten, die du selber erstellt hast!';
+        return next(e);
+      }
+
+      res.render('new-date', { loggedIn: req.isAuthenticated(), course });
+    });
+  });
+});
+
+router.post('/alle-kurse/:courseId/neuer-termin', function(req, res, next) {
+  const { year, month, day, hour, minute } = req.body;
+  if (!year || !month || !day || !hour || !minute) {
+    return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/neuer-termin`);
+  }
+
+  if (Number.isNaN(parseInt(year))) return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/neuer-termin`);
+  if (Number.isNaN(parseInt(month))) return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/neuer-termin`);
+  if (Number.isNaN(parseInt(day))) return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/neuer-termin`);
+  if (Number.isNaN(parseInt(hour))) return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/neuer-termin`);
+  if (Number.isNaN(parseInt(minute))) return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/neuer-termin`);
+
+  const date = new Date();
+  date.setFullYear(parseInt(year));
+  date.setMonth(parseInt(month) - 1);
+  date.setDate(parseInt(day));
+  date.setHours(parseInt(hour));
+  date.setMinutes(parseInt(minute));
+
+  Course.findOne({ _id: req.params.courseId }, (err, course) => {
+    if (err) return next(err);
+
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return next(err);
+      let isOwner = false;
+
+      if (!!user.courses.find(c => c._id.equals(course._id))) {
+        isOwner = true;
+      }
+
+      if (!isOwner) {
+        const e = new Error();
+        e.code = '403';
+        e.message = 'Du kannst nur Kurse bearbeiten, die du selber erstellt hast!';
+        return next(e);
+      }
+
+      const newCourseInstance = new CourseInstance({ date });
+      newCourseInstance.save((err, courseInstance) => {
+        if (err) return next(err);
+        course.courseInstances.push(courseInstance);
+        course.save((err) => {
+          if (err) return next(err);
+          return res.redirect(`/plattform/alle-kurse/${req.params.courseId}`)
+        })
       });
     });
   });

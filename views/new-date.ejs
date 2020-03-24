@@ -1,0 +1,95 @@
+<%- include template_header.ejs %>
+
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+        <!-- Masthead Avatar Image -->
+        <!--<img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">-->
+
+        <!-- Masthead Heading -->
+        <h1 class="masthead-heading text-uppercase mb-0">Neuer Termin</h1>
+
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
+    </div>
+</header>
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form method="POST" action="/plattform/alle-kurse/<%= course._id %>/neuer-termin" style="max-width: 800px">
+                    <h2>Datum</h2>
+                    <div class="row">
+                        <div class="col-4 col-md-3">
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Tag</label>
+                                    <input class="form-control" id="day" name="day" maxlength="2" minlength="2" type="text" placeholder="Tag" required="required" data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Monat</label>
+                                    <input class="form-control" id="month" name="month" maxlength="2" minlength="2" type="text" placeholder="Monat" required="required" data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Jahr</label>
+                                    <input class="form-control" id="year" name="year" maxlength="4" minlength="4" type="text" placeholder="Jahr" required="required" data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <h2>Uhrzeit</h2>
+
+                    <div class="row">
+                        <div class="col-4 col-md-3">
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Stunde</label>
+                                    <input class="form-control" id="hour" name="hour" maxlength="2" minlength="2" type="text" placeholder="Stunde" required="required" data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Minute</label>
+                                    <input class="form-control" id="minute" name="minute" maxlength="2" minlength="2" type="text" placeholder="Minute" required="required" data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group">
+                        <a class="btn btn-light btn-xl" href="/plattform/alle-kurse/<%= course._id %>">Abbrechen</a>
+                        <button type="submit" class="btn btn-primary btn-xl">Termin erstellen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include template_footer.ejs %>
