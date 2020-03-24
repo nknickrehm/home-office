@@ -113,7 +113,7 @@
                                                 </script>
                                             </h3>
                                             <h4><i class="fa fa-users"></i>&nbsp;<%= course.courseInstances[i].members.length %> Teilnehmer</h4>
-                                            <a href="#" class="btn btn-primary" style="margin-right: 10px;">
+                                            <a href="/plattform/alle-kurse/<%= course._id %>/<%= course.courseInstances[i]._id %>/teilnehmen" class="btn btn-primary" style="margin-right: 10px;">
                                                 <i class="fa fa-user"></i>
                                                 &nbsp;
                                                 <span>Alleine</span>

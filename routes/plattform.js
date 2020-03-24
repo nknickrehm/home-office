@@ -1,6 +1,7 @@
 var express = require('express');
 const xss = require('xss');
 const showdown  = require('showdown');
+const CourseMember = require('../models/courseMember').CourseMember;
 const CourseInstance = require('../models/courseInstance').CourseInstance;
 const Course = require('../models/course').Course;
 const User = require('../models/user').User;
@@ -136,6 +137,53 @@ router.post('/alle-kurse/:courseId/bearbeiten', (req, res, next) => {
       Course.findOneAndUpdate({ _id: req.params.courseId }, { title, description}, (err) => {
         if (err) return next(err);
         res.redirect(`/plattform/alle-kurse/${req.params.courseId}#bearbeitet`);
+      });
+    });
+  });
+});
+
+router.get('/alle-kurse/:courseId/:courseInstanceId/teilnehmen', (req, res, next) => {
+  Course.findOne({ _id: req.params.courseId }, (err, course) => {
+    if (err) return next(err);
+
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return next(err);
+      let isOwner = false;
+
+      if (!!user.courses.find(c => c._id.equals(course._id))) {
+        isOwner = true;
+      }
+
+      if (isOwner) {
+        const e = new Error();
+        e.code = '403';
+        e.message = 'Du kannst nicht an deinem eigenen Kurs teilnehmen!';
+        return next(e);
+      }
+
+      const courseInstance = course.courseInstances.find(c => c._id.equals(req.params.courseInstanceId));
+      if (!courseInstance) return res.redirect(`/plattform/alle-kurse/${req.params.courseId}/`);
+
+      if (courseInstance.members.find(m => m.email === req.user.email)) {
+        const e = new Error();
+        e.code = '403';
+        e.message = 'Du bist bereits angemeldet!';
+        return next(e);
+      }
+
+      const newCourseMember = new CourseMember({ email: req.user.email, displayName: req.user.displayName });
+      newCourseMember.save((err, courseMember) => {
+        if (err) return next(err);
+        courseInstance.members.push(courseMember);
+        courseInstance.save((err) => console.error(err));
+        course.save((err) => console.error(err));
+        User.findOne({ 'courses._id': course._id }, (err, user) => {
+          if (err) return next(err);
+          const userCourse = user.courses.find(c => c._id.equals(course._id));
+          if (!!userCourse) userCourse.courseInstances.push(courseInstance);
+          user.save((err) => console.error(err));
+          res.redirect(`/plattform/alle-kurse/${req.params.courseId}/`);
+        });
       });
     });
   });
