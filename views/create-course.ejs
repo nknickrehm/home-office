@@ -1,4 +1,4 @@
-<%- include template_header.ejs %>
+<%- include('partials/template_header.ejs', { loggedIn: true }) %>
 
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
@@ -41,6 +41,27 @@
                         </div>
                     </div>
                     <br>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Tags (mit Komma trennen)</label>
+                            <input class="form-control" id="tags" name="tags" type="text" placeholder="Tags (mit Komma trennen)" required="required" data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>URL zum Thumbnail</label>
+                            <input class="form-control" id="thumbnailURL" name="thumbnailURL" type="text" placeholder="URL zum Thumbnail" required="required" data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>URL zum Banner</label>
+                            <input class="form-control" id="bannerURL" name="bannerURL" type="text" placeholder="URL zum Banner" required="required" data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
                     <div id="success"></div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Kurs erstellen</button>
@@ -129,4 +150,4 @@
   });
 </script>
 
-<%- include template_footer.ejs %>
+<%- include partials/template_footer.ejs %>

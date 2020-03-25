@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
-const courseSchema = require('./course').course_schema;
+const { courseSchema } = require('./course');
 
-const Schema = mongoose.Schema;
-
-const user_schema = new Schema({
-  email: String,
-  password: String,
+const userSchema = new mongoose.Schema({
   displayName: String,
   role: String,
+  emailValidated: Boolean,
   personalInformation: {
     firstName: String,
     lastName: String,
@@ -17,14 +14,22 @@ const user_schema = new Schema({
     addressB: String,
     city: String,
     zipCode: String,
-    region: String,
     country: String,
   },
+  tags: [ String ],
   courses: [ courseSchema ],
 });
 
-user_schema.plugin(passportLocalMongoose, { usernameField: 'email' });
+// Setup the passport middleware for mongoDB
+passportOptions = {
+  usernameField: 'email',
+  usernameLowerCase: true,
+  lastLoginField: 'lastLogin',
 
-const User = mongoose.model('user', user_schema);
+};
 
-module.exports = { User, user_schema };
+userSchema.plugin(passportLocalMongoose, passportOptions);
+
+const User = mongoose.model('user', userSchema);
+
+module.exports = { User, userSchema };

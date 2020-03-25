@@ -1,4 +1,4 @@
-<%- include template_header.ejs %>
+<%- include('partials/template_header.ejs', { loggedIn: true }) %>
 
 <!-- Masthead -->
 <header class="masthead bg-primary text-white text-center">
@@ -34,7 +34,7 @@
 <!-- About Section -->
 <section class="page-section mb-0">
     <div class="container">
-        <% if (isOwner) { %>
+        <% if (isAuthor) { %>
             <h2>
                 Diese Herausforderung
                 <a href="/plattform/alle-kurse/<%= course._id %>/bearbeiten" class="btn btn-warning">
@@ -56,7 +56,7 @@
             </div>
 
             <% if (course.courseInstances.length > 0) { %>
-                <% if (isOwner) { %>
+                <% if (isAuthor) { %>
                     <div class="col col-12 col-xl-5">
                         <div class="card">
                             <div class="card-body">
@@ -131,7 +131,7 @@
                     </div>
                 <% } %>
             <% } else { %>
-                <% if (isOwner) { %>
+                <% if (isAuthor) { %>
                     <div class="col col-12 col-xl-5">
                         <div class="card">
                             <div class="card-body">
@@ -159,4 +159,4 @@
     </div>
 </section>
 
-<%- include template_footer.ejs %>
+<%- include partials/template_footer.ejs %>

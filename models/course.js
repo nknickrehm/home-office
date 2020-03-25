@@ -1,16 +1,19 @@
 const mongoose = require('mongoose');
-const courseInstanceSchema = require('./courseInstance').course_instance_schema;
+const { User } = require('./user');
+const { courseInstanceSchema } = require('./courseInstance');
+const { commentSchema } = require('./comment');
 
-const Schema = mongoose.Schema;
-
-const course_schema = new Schema({
+const courseSchema = new mongoose.Schema({
+  authorId: mongoose.ObjectId,
   title: String,
   description: String,
   thumbnailURL: String,
+  bannerURL: String,
   tags: [ String ],
+  comments: [ commentSchema ],
   courseInstances: [ courseInstanceSchema ]
 });
 
-const Course = mongoose.model('course', course_schema);
+const Course = mongoose.model('course', courseSchema);
 
-module.exports = { Course, course_schema };
+module.exports = { Course, courseSchema };

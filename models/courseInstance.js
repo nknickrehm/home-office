@@ -1,13 +1,9 @@
-const mongoose = require('mongoose');
-const courseMemberSchema = require('./courseMember').course_member_schema;
+const { Schema } = require('mongoose');
+const { courseMemberSchema } = require('./courseMember');
 
-const Schema = mongoose.Schema;
-
-const course_instance_schema = new Schema({
+const courseInstanceSchema = new Schema({
   date: Date,
-  members: [courseMemberSchema],
+  members: [ courseMemberSchema ],
 });
 
-const CourseInstance = mongoose.model('courseInstance', course_instance_schema);
-
-module.exports = { CourseInstance, course_instance_schema };
+module.exports = { courseInstanceSchema };
