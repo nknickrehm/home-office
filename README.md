@@ -3,7 +3,9 @@ Unser Beitrag zum Hackathon #WirVsVirus.
 - Mehr Informationen zum Hackathon [hier](https://wirvsvirushackathon.org) 
 - Zu unserem Projekt auf Devpost gelangt ihr [hier](https://devpost.com/software/1_26_b_homeoffice_remoteteamarbeit)
 - Eine Live Demo findet ihr [hier](https://www.world-of-work.de)
+
 ![Screenshot des Prototypen der eine beispielhafte Teamherausforderung zeigt](https://raw.githubusercontent.com/nknickrehm/home-office/master/public/images/screenshot.png)
+
 ## Quick Start mit dem Prototypen
 - Installiere [Docker](https://docs.docker.com/install/) 
 - Erstelle einen Account im [Docker-Hub](https://hub.docker.com)
