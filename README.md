@@ -3,13 +3,13 @@ Unser Beitrag zum Hackathon #WirVsVirus.
 - Mehr Informationen zum Hackathon [hier](https://wirvsvirushackathon.org) 
 - Zu unserem Projekt auf Devpost gelangt ihr [hier](https://devpost.com/software/1_26_b_homeoffice_remoteteamarbeit)
 - Eine Live Demo findet ihr [hier](https://www.world-of-work.de)
-
+![Screenshot des Prototypen der eine beispielhafte Teamherausforderung zeigt](https://raw.githubusercontent.com/nknickrehm/home-office/master/public/images/screenshot.png)
 ## Quick Start mit dem Prototypen
 - Installiere [Docker](https://docs.docker.com/install/) 
 - Erstelle einen Account im [Docker-Hub](https://hub.docker.com)
 - Melde deine Docker Installation im Docker-Hub an mit `docker login`
 - Klone dieses Repository
-- Starte den Prototypen  mit `docker-compose up` in diesem Verzeichnis
+- Starte den Prototypen  mit `docker-compose up`
 
 ## Pitch Video
 [![World of Work - Thumbnail zu unserem Pitch Video](https://img.youtube.com/vi/L4Fc87VLV0c/0.jpg)](https://www.youtube.com/watch?v=L4Fc87VLV0c)
